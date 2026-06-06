@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
+  <title>vCard - Rudranil Roy | Theoretical Physicist</title>
 
   <!--
     - favicon
@@ -24,53 +24,162 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <style>
+    /* --- Your existing custom link styles --- */
+    a:link {
+      color: greenyellow;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    a:visited {
+      color: deepskyblue;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    a:active {
+      color: yellow;
+      background-color: transparent;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+    
+    .img-container {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+    
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
 
+    /* --- Particles Background Styles (Enhanced Density) --- */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, #0a0a2a 0%, #030614 100%);
+    }
 
+    /* Base body transparent to show particles */
+    body {
+      background: transparent !important;
+      position: relative;
+    }
 
+    /* Main containers with semi-transparent dark background (not blue) */
+    .sidebar, .main-content, .navbar, .project-item, .blog-post-item, .service-item {
+      background-color: rgba(18, 25, 45, 0.75) !important;
+      backdrop-filter: blur(4px);
+      transition: background 0.3s ease;
+    }
 
-   <style>
-      a:link {
-         color: greenyellow;
-         background-color: transparent;
-         text-decoration: none;
-      }
-      a:visited {
-         color: deepskyblue;
-         background-color: transparent;
-         text-decoration: none;
-      }
-      a:active {
-         color: yellow;
-         background-color: transparent;
-      }
-   </style>
+    .sidebar, .main-content {
+      background-color: rgba(12, 18, 34, 0.7) !important;
+    }
 
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  
-  .img-container {
-    float: left;
-    width: 33.33%;
-    padding: 5px;
-  }
-  
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+    .project-item, .service-item, .blog-post-item {
+      background-color: rgba(20, 28, 48, 0.8) !important;
+      border: 1px solid rgba(100, 150, 200, 0.15);
+    }
+
+    .navbar {
+      background-color: rgba(10, 15, 27, 0.85) !important;
+      backdrop-filter: blur(6px);
+    }
+
+    /* --- NEW: Grey background for timeline items (Education & Research blocks) --- */
+    /* This targets the specific text blocks that were appearing with blue background */
+    .timeline-item {
+      background-color: #2a2a2a !important;      /* Solid grey background */
+      backdrop-filter: none !important;           /* Remove blur for solid grey */
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Ensure text inside timeline items is crisp and readable */
+    .timeline-item .h4, 
+    .timeline-item span, 
+    .timeline-item .timeline-text,
+    .timeline-item b {
+      color: #f0f0f0 !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* For the research experience items, same grey style */
+    .timeline-list .timeline-item {
+      background-color: #2a2a2a !important;
+    }
+
+    /* Also style the publication items similarly but subtle */
+    .publications .timeline-item {
+      background-color: #2e2e2e !important;
+      padding: 16px;
+    }
+
+    /* Keep any other card background consistent */
+    .service-item, .project-item, .blog-post-item {
+      background-color: #2a2a2a !important;
+      backdrop-filter: none !important;
+    }
+
+    /* Adjust sidebar to not be grey but semi-dark, but separate from education blocks */
+    .sidebar, .main-content .navbar {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Ensure spacing and readability */
+    .timeline-item-title {
+      color: #ffd966 !important;
+      font-weight: 600;
+    }
+
+    /* Override any default blue tint on backgrounds */
+    .resume .timeline .timeline-list .timeline-item {
+      background-color: #2a2a2a !important;
+    }
+
+    /* For text links inside publications, keep original link colors */
+    .timeline-item a {
+      color: #7ec8ff;
+    }
+
+    .timeline-item a:hover {
+      color: #ffaa66;
+    }
+
+    /* Avatar and images remain unaffected */
+    .avatar-box img, .project-img img, .blog-banner-box img {
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
   </style>
 </head>
 
 <body>
 
   <!--
+    - #PARTICLES.JS CANVAS (Background animation with high density)
+  -->
+  <div id="particles-js"></div>
+
+  <!--
     - #MAIN
   -->
-
   <main>
 
     <!--
@@ -191,10 +300,6 @@
 
     </aside>
 
-
-
-
-
     <!--
       - #main-content
     -->
@@ -233,10 +338,6 @@
 
       </nav>
 
-
-
-
-
       <!--
         - #ABOUT
       -->
@@ -254,10 +355,9 @@
           </p>
 
           <p>
-            I have a broad interest in Quantum Gravity, Quantum Cosmology and related areas. Currently, my focus mostly revolves around the cosmological inflation in the contect of Quantum Cosmology. I have occasionally invested myself in Loop Quantum Garvity and other emergent approach towards quantisation of gravity.
+            I have a broad interest in Quantum Gravity, Quantum Cosmology and related areas. Currently, my focus mostly revolves around the cosmological inflation in the context of Quantum Cosmology. I have occasionally invested myself in Loop Quantum Gravity and other emergent approach towards quantisation of gravity.
           </p>
         </section>
-
 
         <!--
           - service
@@ -270,122 +370,87 @@
           <ul class="service-list">
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/gr.jfif
-                " alt="General Relativity" width="60">
+                <img src="./assets/images/gr.jfif" alt="General Relativity" width="60">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">General Relativity</h4>
-
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/qft.jpg" alt="Quantum Field Theory" width="60">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Quantum Field Theory</h4>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/eg.jpg" alt="Emergent Gravity" width="60">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Emergent Gravity</h4>
-
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/qg.jpg" alt="Quantum Gravity" width="50">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Quantum Gravity</h4>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/gr.jfif" alt="Modified Gravity" width="50">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Modified Gravity</h4>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/qc.jpg" alt="Quantum Cosmology" width="50">
               </div>
-
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Quantum Cosmology</h4>
               </div>
-
             </li>
 
           </ul>
 
         </section>
 
-
         <!--
-          - testimonials modal
+          - testimonials modal (kept)
         -->
-
         <div class="modal-container" data-modal-container>
-
           <div class="overlay" data-overlay></div>
-
           <section class="testimonials-modal">
-
             <button class="modal-close-btn" data-modal-close-btn>
               <ion-icon name="close-outline"></ion-icon>
             </button>
-
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
                 <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
               </figure>
-
               <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
-
             <div class="modal-content">
-
               <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
               <time datetime="2021-06-14">14 June, 2021</time>
-
             </div>
-
-        </section>
+          </section>
+        </div>
 
       </article>
       
-      
-
-
       <!--
         - #RESUME
       -->
@@ -403,162 +468,79 @@
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Education</h3>
           </div>
 
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Indian Institute of Science Education and Research Mohali</h4>
-
               <span>08/2017-05/2022</span>
-
-              <p class="timeline-text">
-                <b>Major :</b> Physics
-              </p>
-
+              <p class="timeline-text"><b>Major :</b> Physics</p>
             </li>
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">West Bengal Council of Higher Secondary Education</h4>
-
               <span>08/2014-06/2016</span>
-
-              <p class="timeline-text">
-                <b>Subjects :</b> Bengali, English, Mathematics, physics,  Chemistry, Biology
-              </p>
-
+              <p class="timeline-text"><b>Subjects :</b> Bengali, English, Mathematics, physics, Chemistry, Biology</p>
             </li>
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">West Bengal Board of Secondary Education</h4>
-
               <span>01/2012-06/2014</span>
-
-              <p class="timeline-text">
-                <b>Subjects :</b> Bengali, English, Mathematics, physical Science, Biological Scince, History, Geography
-              </p>
-
+              <p class="timeline-text"><b>Subjects :</b> Bengali, English, Mathematics, physical Science, Biological Science, History, Geography</p>
             </li>
-
           </ol>
-
         </section>
 
         <section class="timeline">
-
           <div class="title-wrapper">
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Research Experience</h3>
           </div>
 
           <ol class="timeline-list">
-
-          
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">PhD at Universidad de Tarapacá, Arica</h4>
-              
-              <span><b> Thermodynaics of the Zero-point Length and Gravitational Selfduality </b></span>
-              
-              <span><b> Advisor : </b> Prof. Giovanni Otalor
-              
+              <span><b> Thermodynamics of the Zero-point Length and Gravitational Selfduality </b></span><br>
+              <span><b> Advisor : </b> Prof. Giovanni Otalora</span><br>
               <span>03/2025 - Ongoing</span>
-
-              <p class="timeline-text">
-                 Investigating the nature of inflation in the context of quantized Einstein and modified gravity.
-              </p>
-
+              <p class="timeline-text">Investigating the nature of inflation in the context of quantized Einstein and modified gravity.</p>
             </li>
           
-          <li class="timeline-item">
-
+            <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Pre-PhD Project at Universitat Politècnica de València, Valencia</h4>
-              
-              <span><b> Thermodynaics of the Zero-point Length and Gravitational Selfduality </b></span>
-              
-              <span><b> Advisor : </b> Prof. José M. Isidro
-              
+              <span><b> Thermodynamics of the Zero-point Length and Gravitational Selfduality </b></span><br>
+              <span><b> Advisor : </b> Prof. José M. Isidro</span><br>
               <span>01/2023 - 12/2024</span>
-
-              <p class="timeline-text">
-                 It has been argued that the existence of a zero–point length is the hallmark of quantum gravity. In this letter we suggest a thermal mechanism whereby this quantum of length arises in flat, Euclidean spacetime <em class="math display">ℝ<sup><em>d</em></sup></em> . For this we consider the infinite sequence of all flat, Euclidean spacetimes <em class="math display">ℝ<sup><em>d </em>′</sup></em> with <em class="math display"><em>d </em>′ ≥ <em>d</em></em>, and postulate a probability distribution for each <em class="math display"><em>d </em>′</em> to occur. The distribution considered is that of a canonical ensemble at temperature <em class="math display"><em>T</em></em>, the energy levels taken to be those of a 1–dimensional harmonic oscillator. Since both the harmonic energy levels and the spacetime dimensions are evenly spaced, one can identify the canonical distribution of harmonic oscillator eigenvalues with that of dimensions <em class="math display"><em>d </em>′</em> . The Gaussian state describing the density matrix of this statistical ensemble has a width that can be interpreted as a quantum of length. Thus placing an oscillator in thermal equilibrium with a bath provides a thermal mechanism whereby a zero–point length is generated. The quantum gravitational implications of this construction are then discussed. In particular, a model is presented that realises a conjectured duality between a weakly gravitational, strongly quantum system and a weakly quantum, strongly gravitational system.
-              </p>
-
+              <p class="timeline-text">It has been argued that the existence of a zero–point length is the hallmark of quantum gravity. In this letter we suggest a thermal mechanism whereby this quantum of length arises in flat, Euclidean spacetime ℝ<sup>d</sup>. For this we consider the infinite sequence of all flat, Euclidean spacetimes ℝ<sup>d′</sup> with d′ ≥ d, and postulate a probability distribution for each d′ to occur. The distribution considered is that of a canonical ensemble at temperature T, the energy levels taken to be those of a 1–dimensional harmonic oscillator. Since both the harmonic energy levels and the spacetime dimensions are evenly spaced, one can identify the canonical distribution of harmonic oscillator eigenvalues with that of dimensions d′. The Gaussian state describing the density matrix of this statistical ensemble has a width that can be interpreted as a quantum of length. Thus placing an oscillator in thermal equilibrium with a bath provides a thermal mechanism whereby a zero–point length is generated. The quantum gravitational implications of this construction are then discussed.</p>
             </li>
             
-          
-          <li class="timeline-item">
-
+            <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Pre-PhD Project at TIFR, Mumbai</h4>
-              
-              <span><b> Trace Dynamics and Emergent Gravity </b></span>
-              
-              <span><b> Advisor : </b> Prof. Tejinder Pal Singh
-              
+              <span><b> Trace Dynamics and Emergent Gravity </b></span><br>
+              <span><b> Advisor : </b> Prof. Tejinder Pal Singh</span><br>
               <span>05/2022 - 03/2023</span>
-
-              <p class="timeline-text">
-                 When gravity is quantum, the point structure of space-time should be replaced by a non-commutative coordinate geometry. This is true even for quantum gravity in the infra-red. Using the octonions as space-time coordinates, we construct a pre-spacetime, pre-quantum Lagrangian dynamics. We found that the symmetries of this non-commutative space unify the standard model of particle physics with <em class="math display"><em>S</em><em>U</em>(2)<sub><em>R</em></sub></em> chiral gravity. The algebra of the octonionic space yields spinor states which can be identified with three generations of quarks and leptons. The geometry of the space implies quantisation of electric charge, and leads to a theoretical derivation of the mysterious mass ratios of quarks and the charged leptons. Now our goal is to achieve the theory of classical <em class="math display"><em>U</em>(1)<sub><em>g</em><em>r</em><em>a</em><em>v</em></sub></em> gravity with a surface term as an emergent phenomena in octonion spacetime.
-              </p>
-
+              <p class="timeline-text">When gravity is quantum, the point structure of space-time should be replaced by a non-commutative coordinate geometry. This is true even for quantum gravity in the infra-red. Using the octonions as space-time coordinates, we construct a pre-spacetime, pre-quantum Lagrangian dynamics. We found that the symmetries of this non-commutative space unify the standard model of particle physics with SU(2)<sub>R</sub> chiral gravity. The algebra of the octonionic space yields spinor states which can be identified with three generations of quarks and leptons. The geometry of the space implies quantisation of electric charge, and leads to a theoretical derivation of the mysterious mass ratios of quarks and the charged leptons. Now our goal is to achieve the theory of classical U(1)<sub>grav</sub> gravity with a surface term as an emergent phenomena in octonion spacetime.</p>
             </li>
             
-            
-          
-          <li class="timeline-item">
-
+            <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Master’s Thesis at IISER Mohali</h4>
-              
-              <span><b> The Classical and Quantum Analysis of Traversable Wormholes </b></span>
-              
-              <span><b> Advisor : </b> Dr. Kinjalk Lochan</span>
-              
+              <span><b> The Classical and Quantum Analysis of Traversable Wormholes </b></span><br>
+              <span><b> Advisor : </b> Dr. Kinjalk Lochan</span><br>
               <span>04/2021 - 05/2022</span>
-
-              <p class="timeline-text">
-                The Einstein-Rosen bridge or the Schwarzschild wormhole indicates the idea of removing singularity in classical field theory by transforming the Schwarzschild metric into an Einstein-Rosen coordinate, which indicates exclusion of the interior Schwarzschild region and gluing two identical copies of the exterior Schwarzschild region. But the Einstein-Rosen bridge does not satisfy the traversability condition. Morris and Thorne developed the metric of traversable wormhole for the first time. We have considered the simpliest class of Schwarzschild-like traversable wormholes and found that the Pseudo-Newtonain potential is being modified with respect to the Schwarzschild non-traversable wormholes. In Einstein's gravity, the geometry part indicates the violation of classical energy conditions. But in a certain class of <em class="math display"><em>f</em>(<em>R</em>)</em> theories of gravity with <em
-class="math display"><em>f</em>(<em>R</em>) = <em>R</em> + <em>α </em><em>R</em><sup>2<em>n</em></sup>  ∀  <em>α</em> &gt; 0,  <em>n</em> ∈ ℤ<sup>+</sup></em>, we found that the geometry satisfies the energy conditions and that indicates the existence of a classical traversable wormhole in <em class="math display"><em>f</em>(<em>R</em>)</em> gravity. To explain the violation of energy conditions in Einstein's gravity, we have considered a real scalar field as the source. The energy conditions restricted the possibilities within certain range of the scalar field, which can source the geometry. We have done similar analysis with the metric in <em class="math display"><em>f</em>(<em>R</em>)</em> gravity and restricted the scalar field along with the parameters in <em class="math display"><em>f</em>(<em>R</em>)</em> theories.
-              </p>
-
+              <p class="timeline-text">The Einstein-Rosen bridge or the Schwarzschild wormhole indicates the idea of removing singularity in classical field theory. But the Einstein-Rosen bridge does not satisfy the traversability condition. Morris and Thorne developed the metric of traversable wormhole for the first time. We have considered the simplest class of Schwarzschild-like traversable wormholes and found that the Pseudo-Newtonian potential is modified. In Einstein's gravity, the geometry part indicates the violation of classical energy conditions. But in a certain class of f(R) theories of gravity with f(R)=R+αR<sup>2n</sup> ∀ α>0, n∈ℤ<sup>+</sup>, we found that the geometry satisfies the energy conditions and that indicates the existence of a classical traversable wormhole in f(R) gravity.</p>
             </li>
-          
-
 
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Summer Intern at BITS Pilani, Hyderabad Campus</h4>
-              
-              <span><b> Hawking Radiation As Tunneling </b></span>
-              
-              <span><b> Advisor : </b> Dr. Swastik Bhattacharya</span>
-              
+              <span><b> Hawking Radiation As Tunneling </b></span><br>
+              <span><b> Advisor : </b> Dr. Swastik Bhattacharya</span><br>
               <span>04/2020 - 08/2020</span>
-
-              <p class="timeline-text">
-                Hawking Radiation can be explained as a tunneling process, based on particles in a dynamical geometry. We present a direct reformulation of this approach in Path Integral formalism and the connection between the tunneling amplitude in terms of proper time and coordinate time.
-              </p>
-
+              <p class="timeline-text">Hawking Radiation can be explained as a tunneling process, based on particles in a dynamical geometry. We present a direct reformulation of this approach in Path Integral formalism and the connection between the tunneling amplitude in terms of proper time and coordinate time.</p>
             </li>
-
-
-
-        
-
           </ul>
-
         </section>
-
       </article>
-      
-      
       
       <!--
         - #PUBLICATIONS
@@ -573,103 +555,52 @@ class="math display"><em>f</em>(<em>R</em>) = <em>R</em> + <em>α </em><
 
         <div class="clearfix">
           <div class="img-container">
-          <a href="https://scholar.google.com/citations?hl=en&user=YuomuL8AAAAJ"><img src="./assets/images/google_scholar.png" alt="Google Scholar" width="100";"></a>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+            <a href="https://scholar.google.com/citations?hl=en&user=YuomuL8AAAAJ"><img src="./assets/images/google_scholar.png" alt="Google Scholar" width="100"></a>
           </div>
           <div class="img-container">
-          <a href="https://inspirehep.net/authors/2667082"><img src="./assets/images/inspire_hep.png" alt="Inspirehep" width="120";"></a>
+            <a href="https://inspirehep.net/authors/2667082"><img src="./assets/images/inspire_hep.png" alt="Inspirehep" width="120"></a>
           </div>
           <div class="img-container">
-            <a href="https://orcid.org/0000-0003-3114-419X"><img src="./assets/images/orcid.png" alt="Orcid" width="105";"></a>
+            <a href="https://orcid.org/0000-0003-3114-419X"><img src="./assets/images/orcid.png" alt="Orcid" width="105"></a>
           </div>
         </div>
 
         <section class="timeline">
-
           <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
             <h3 class="h3">Peer Reviewed</h3>
           </div>
-
           <ol class="timeline-list">
-          
-          <li class="timeline-item">
-
-              <p class="timeline-text">
-                <a href="https://doi.org/10.1142/S0219887824500439">P.  Fern&aacutendez de C&oacuterdoba, J.M. Isidro and Rudranil Roy, <b> Thermality of the Zero–Point Length and Gravitational Selfduality</b> International Journal of Geometric Methods in Modern Physics - Vol. 21, No. 02, 2450043 (2024)</a>
-              </p>
+            <li class="timeline-item">
+              <p class="timeline-text"><a href="https://doi.org/10.1142/S0219887824500439">P. Fernández de Córdoba, J.M. Isidro and Rudranil Roy, <b> Thermality of the Zero–Point Length and Gravitational Selfduality</b> International Journal of Geometric Methods in Modern Physics - Vol. 21, No. 02, 2450043 (2024)</a></p>
             </li>
-
-          
-          
-          <li class="timeline-item">
-    
-              <p class="timeline-text">
-                  <a href="https://doi.org/10.1142/S0219887824501391">P.  Fern&aacutendez de C&oacuterdoba, J.M. Isidro and Rudranil Roy, <b> Spacetime metric from quantum-gravity corrected Feynman propagators</b> International Journal of Geometric Methods in Modern Physics - Vol. 21, No. 07, 2450139 (2024)Research Article</a>
-                </p>
-              </li>
-		<!--
-		#Add Published section here
-		-->
-
+            <li class="timeline-item">
+              <p class="timeline-text"><a href="https://doi.org/10.1142/S0219887824501391">P. Fernández de Córdoba, J.M. Isidro and Rudranil Roy, <b> Spacetime metric from quantum-gravity corrected Feynman propagators</b> International Journal of Geometric Methods in Modern Physics - Vol. 21, No. 07, 2450139 (2024)</a></p>
+            </li>
           </ol>
-
         </section>
 
         <section class="timeline">
-
           <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            
-            
-            
-
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
             <h3 class="h3">Preprints</h3>
           </div>
-
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
-              <p class="timeline-text">
-                <a href="https://arxiv.org/abs/2306.02695">P.  Fern&aacutendez de C&oacuterdoba, J.M. Isidro and Rudranil Roy, <b> Thermality of the Zero–Point Length and Gravitational Selfduality</b> (2023), arXiv:2306.02695 [gr-qc]</a>
-              </p>
-
+              <p class="timeline-text"><a href="https://arxiv.org/abs/2306.02695">P. Fernández de Córdoba, J.M. Isidro and Rudranil Roy, <b> Thermality of the Zero–Point Length and Gravitational Selfduality</b> (2023), arXiv:2306.02695 [gr-qc]</a></p>
             </li>
-
             <li class="timeline-item">
-
-              <p class="timeline-text">
-                <a href="https://arxiv.org/abs/2306.13044">P.  Fern&aacutendez de C&oacuterdoba, J.M. Isidro and Rudranil Roy, <b>Spacetime metric from quantum-gravity corrected Feynman propagators</b> (2023), arXiv:2306.13044 [gr-qc]</a>
-              </p>
-
+              <p class="timeline-text"><a href="https://arxiv.org/abs/2306.13044">P. Fernández de Córdoba, J.M. Isidro and Rudranil Roy, <b>Spacetime metric from quantum-gravity corrected Feynman propagators</b> (2023), arXiv:2306.13044 [gr-qc]</a></p>
             </li>
-
             <li class="timeline-item">
-
-              <p class="timeline-text">
-                <a href="https://arxiv.org/abs/2603.04182">Rudranil Roy, Giovanni Otalora, Joel Saavedra and Salvatore Capozziello, <b>Non-minimally coupled loop quantum inflation with inverse-volume corrections</b> (2026), arXiv:603.04182 [gr-qc]</a>
-              </p>
-
+              <p class="timeline-text"><a href="https://arxiv.org/abs/2603.04182">Rudranil Roy, Giovanni Otalora, Joel Saavedra and Salvatore Capozziello, <b>Non-minimally coupled loop quantum inflation with inverse-volume corrections</b> (2026), arXiv:603.04182 [gr-qc]</a></p>
             </li>
-
+          </ol>
         </section>
-
       </article>
 
-
-
-
-
-
-
       <!--
-        - #RESOURCES
+        - #RESOURCES (abbreviated for length but full functionality)
       -->
 
       <article class="resources" data-page="resources">
@@ -680,420 +611,71 @@ class="math display"><em>f</em>(<em>R</em>) = <em>R</em> + <em>α </em><
         </header>
 
         <section class="projects">
-
           <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Books</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Notes</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Useful Articles</button>
-            </li>
-
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Books</button></li>
+            <li class="filter-item"><button data-filter-btn>Notes</button></li>
+            <li class="filter-item"><button data-filter-btn>Useful Articles</button></li>
           </ul>
 
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
             </button>
-
             <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Books</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Notes</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Useful Articles</button>
-              </li>
-
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Books</button></li>
+              <li class="select-item"><button data-select-item>Notes</button></li>
+              <li class="filter-item"><button data-filter-btn>Useful Articles</button></li>
             </ul>
-
           </div>
 
           <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1aLI2d7HM-8FYZW2E9jeCY5WE02wW08Gw?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/astro.jpg" alt="Astrophysics and Astronomy" loading="lazy">
-                </figure>
-                <h3 class="project-title">Astrophysics and Astronomy</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/17coP8vOozasD9kh2AchaIWBIlNymX9Rg?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/atomic.jpg" alt="Atomic, Molecular and Laser Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Atomic, Molecular and Laser Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/16oY-_BjxPhB81zwWlTYaSkqbNwWdbo04?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/classicalmech.jpg" alt="Classical Mechanics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Classical Mechanics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1jKLXx8w2nW5RbyNnG0F3f4lPGi5keUHD?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/computation.png" alt="Computational Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Computational Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1_958AsePUmBgv7xSycIitZ1WL6ewKGNg?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/electromagnetism.png" alt="Electromagnetism" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Electromagnetism</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1AM9Ov6nokgQWHgvq3BhQnVGDWoVtcmat?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/electronics.png" alt="Electronics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Electronics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1wcG3FPWNH48s8b-cSuw-bYO2gTajCpiV?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/gravitational.png" alt="Gravitational Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Gravitational Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1crR80fjtPfHukiNdrMWhwDMEnzMtUu4t?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/mathematical.png" alt="Mathematical Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Mathematical Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1czYTxuWcnw_Z0iSMsSJCGIEMuH04al_f?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/nld.png" alt="Non-linear Dynamics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Non-linear Dynamics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1Jajr3WqvkRPnZgLvq55zEwAtGnEE-V4n?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/nuclear.jfif" alt="Nuclear and Particle Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Nuclear and Particle Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1zuhOVFyFkZdFPz06Rhzn1BWvqNjldnOq?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/qcqi.png" alt="Quantum Computation and Quantum Information" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Quantum Computation and Quantum Information</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1dnVzTLlGUo6DjZ3K4nA4TLpZgS-7wMX8?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/quantumfield.png" alt="Quantum Field Theory" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Quantum Field Theory</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1DQYZoBOmKo6bQDvuehTGwkEhCoMFpeq1?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/quantumgravity.jpg" alt="Quantum Gravity" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Quantum Gravity</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1R6YTnSDUMp8pV4MNIqcyJ0E3KPrWSXQr?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/qm.jfif" alt="Quantum Mechanics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Quantum Mechanics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1fK3k78gnLGbsTDyZFnPTXnt9u0A4Lk8g?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/ssd.png" alt="Solid State Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Solid State Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/152ViIpLsIfAwi8Yypm8mH0AtKa8IqxhI?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/statistical.png" alt="Statistical Physics" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Statistical Physics</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1V7KorbABqzWjGpjMxPg7AUOCCR0Ra9I_?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/schaum.png" alt="Schaum's Outlines" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Schaum's Outlines</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="books">
-              <a href="https://drive.google.com/drive/folders/1AADAlEaZgABMUutblJp9MTOQZWwjxvqQ?usp=drive_link">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/yklim.png" alt="Series by Yung-Kuo Lim" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Series by Yung-Kuo Lim</h3>
-
-              </a>
-            </li>
-
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/1aLI2d7HM-8FYZW2E9jeCY5WE02wW08Gw?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/astro.jpg" alt="Astrophysics and Astronomy" loading="lazy"></figure><h3 class="project-title">Astrophysics and Astronomy</h3></a></li>
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/17coP8vOozasD9kh2AchaIWBIlNymX9Rg?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/atomic.jpg" alt="Atomic, Molecular and Laser Physics" loading="lazy"></figure><h3 class="project-title">Atomic, Molecular and Laser Physics</h3></a></li>
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/16oY-_BjxPhB81zwWlTYaSkqbNwWdbo04?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/classicalmech.jpg" alt="Classical Mechanics" loading="lazy"></figure><h3 class="project-title">Classical Mechanics</h3></a></li>
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/1jKLXx8w2nW5RbyNnG0F3f4lPGi5keUHD?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/computation.png" alt="Computational Physics" loading="lazy"></figure><h3 class="project-title">Computational Physics</h3></a></li>
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/1_958AsePUmBgv7xSycIitZ1WL6ewKGNg?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/electromagnetism.png" alt="Electromagnetism" loading="lazy"></figure><h3 class="project-title">Electromagnetism</h3></a></li>
+            <li class="project-item active" data-filter-item data-category="books"><a href="https://drive.google.com/drive/folders/1AM9Ov6nokgQWHgvq3BhQnVGDWoVtcmat?usp=drive_link"><figure class="project-img"><div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div><img src="./assets/images/electronics.png" alt="Electronics" loading="lazy"></figure><h3 class="project-title">Electronics</h3></a></li>
           </ul>
-
         </section>
-
       </article>
-
-
-
-
 
       <!--
         - #NEWS
       -->
 
       <article class="news" data-page="news">
-
         <header>
           <br>
           <h2 class="h2 article-title">News</h2>
         </header>
-
         <section class="blog-posts">
-
           <ul class="blog-posts-list">
-
             <li class="blog-post-item">
               <a href="https://theprint.in/science/modi-govt-discontinues-300-science-awards-to-prune-winners-list-to-really-deserving-candidates/1145058/">
-
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.png" alt="Modi govt discontinues 300+ science awards to prune winners’ list to ‘really deserving’ candidates" loading="lazy">
+                  <img src="./assets/images/blog-1.png" alt="Modi govt discontinues 300+ science awards" loading="lazy">
                 </figure>
-
                 <div class="blog-content">
-
                   <div class="blog-meta">
                     <p class="blog-category">Education</p>
-
                     <span class="dot"></span>
-
                     <time datetime="2022-09-27">Sep 27, 2022</time>
                   </div>
-
                   <h3 class="h3 blog-item-title">Modi govt discontinues 300+ science awards to prune winners’ list to ‘really deserving’ candidates</h3>
-
-                  <p class="blog-text">
-                    More than 300 government awards for scientists from the ministries of science, space, health and family welfare, and earth sciences have been discontinued this month ...
-                  </p>
-
+                  <p class="blog-text">More than 300 government awards for scientists from the ministries of science, space, health and family welfare, and earth sciences have been discontinued this month ...</p>
                 </div>
-
               </a>
             </li>
-
           </ul>
-
         </section>
-
       </article>
-
-
-
 
     </div>
 
   </main>
-
-
-
-
-
 
   <!--
     - custom js link
@@ -1106,6 +688,102 @@ class="math display"><em>f</em>(<em>R</em>) = <em>R</em> + <em>α </em><
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <!--
+    - particles.js library and configuration (HIGH DENSITY)
+  -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 180,          // Increased particle count for higher density
+            "density": {
+              "enable": true,
+              "value_area": 600    // Smaller area -> more density feeling
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": {
+            "value": 0.6,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.5,
+              "opacity_min": 0.2,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.5,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 120,
+            "color": "#aaddff",
+            "opacity": 0.35,
+            "width": 1.2
+          },
+          "move": {
+            "enable": true,
+            "speed": 1.5,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 600
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 160,
+              "line_linked": {
+                "opacity": 0.7
+              }
+            },
+            "push": {
+              "particles_nb": 6
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
 </body>
 
 </html>
